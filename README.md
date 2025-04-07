@@ -4,7 +4,7 @@
 
 ```yaml
 repos:
-  - repo: https://github.com/isamu-takagi/autoware-guideline-check
+  - repo: https://github.com/autowarefoundation/autoware-guideline-check
     rev: 0.1.0
     hooks:
       - id: check-package-depends
@@ -14,7 +14,7 @@ repos:
 ## Usage as a command line tool
 
 ```bash
-pip install git+https://github.com/isamu-takagi/autoware-guideline-check.git
+pip install git+https://github.com/autowarefoundation/autoware-guideline-check.git
 ```
 
 The following commands will be installed.
