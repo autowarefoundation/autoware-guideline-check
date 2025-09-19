@@ -9,6 +9,7 @@ readme = {file = "README.md", content-type = "text/markdown"}
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 dependencies = [
+  "jsonschema",
   "pyyaml",
 ]
 authors = [
@@ -19,6 +20,7 @@ maintainers = [
 ]
 
 [project.scripts]
+autoware-guideline-check = "autoware_guideline_check.entrypoint:main"
 check-package-depends = "autoware_guideline_check.check_package_depends:main"
 check-directory-structure = "autoware_guideline_check.check_directory_structure:main"
 
