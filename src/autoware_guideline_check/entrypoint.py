@@ -36,21 +36,19 @@ def main():
     parser.add_argument("--xunit-name")
     args = parser.parse_args()
 
-    workspace = Workspace(args.workspace)
-
     packages = args.packages or Workspace(args.roots).packages
     files = args.files or sum((package.files for package in packages), [])
 
-    for file in files:
-        test(args, file, workspace)
+    workspace = Workspace(args.workspace)
+    suite = sum((TestSuite.Load(file) for file in files), TestSuite())
+    test(suite, args, workspace)
 
 
-def test(args, file, workspace):
+def test(suite, args, workspace):
     start = time.time()
 
-    suite = TestSuite.Load(file)
     for case in suite.cases:
-        case.result = param.check(case.data)
+        case.result = param.check(case.data, workspace)
 
     duration = time.time() - start
 

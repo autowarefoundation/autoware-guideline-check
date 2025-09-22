@@ -52,8 +52,11 @@ class TestCase:
 
 
 class TestSuite:
-    def __init__(self, cases):
-        self.cases = cases
+    def __init__(self, cases=None):
+        self.cases = [] if cases is None else cases
+
+    def __add__(self, other):
+        return TestSuite(self.cases + other.cases)
 
     def count(self, status=None):
         if status is None:

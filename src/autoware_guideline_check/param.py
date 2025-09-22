@@ -37,10 +37,10 @@ def validate(schema_path, params_path):
         return TestResult.Failure(error.message, details)
 
 
-def check(data: dict):
+def check(data: dict, workspace):
     try:
-        schema = FilePath.Parse(data["schema"])
-        params = FilePath.Parse(data["params"])
+        schema = FilePath.Parse(data["schema"], workspace)
+        params = FilePath.Parse(data["params"], workspace)
         return validate(schema, params)
     except Exception as error:
         return TestResult.Error(repr(error), "")

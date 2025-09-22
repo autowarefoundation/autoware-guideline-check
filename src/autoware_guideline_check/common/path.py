@@ -14,7 +14,7 @@
 
 from pathlib import Path
 
-from ament_index_python.packages import get_package_share_directory
+from .workspace import Workspace
 
 
 class FilePath:
@@ -25,15 +25,13 @@ class FilePath:
         return str(self.path)
 
     @staticmethod
-    def Parse(data: dict):
-        # package not found
+    def Parse(data: dict, workspace: Workspace):
         file = data.get("file")
         if file is None:
-            # throw ParseError
-            return None
+            raise KeyError("file")
         pkg = data.get("package")
         if pkg is None:
             return FilePath(Path(file))
         else:
-            pkg = get_package_share_directory(pkg)
+            pkg = workspace.get_package_share_directory(pkg)
             return FilePath(Path(pkg) / Path(file))
