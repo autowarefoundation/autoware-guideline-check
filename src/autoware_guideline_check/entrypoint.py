@@ -31,7 +31,7 @@ def main():
     parser.add_argument("--roots", nargs="+", default=["."])
     parser.add_argument("--files", nargs="+")
     parser.add_argument("--packages", nargs="+")
-    parser.add_argument("--workspace", nargs="+", default=[])
+    parser.add_argument("--workspace", nargs="*", default=[])
     parser.add_argument("--xunit-file")
     parser.add_argument("--xunit-name")
     args = parser.parse_args()
