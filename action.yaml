@@ -4,8 +4,8 @@ description: ""
 runs:
   using: composite
   steps:
-    - name: List
-      run: ls -la ${GITHUB_ACTION_PATH}
+    - name: Upgrade pip
+      run: pip install --upgrade pip
       shell: bash
 
     - name: Install
