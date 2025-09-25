@@ -11,4 +11,4 @@ COPY src /app/src/
 RUN pip install --upgrade pip
 RUN pip install /app
 
-CMD ["autoware-guideline-check"]
+ENTRYPOINT ["autoware-guideline-check"]
