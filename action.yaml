@@ -5,7 +5,7 @@ runs:
   using: composite
   steps:
     - name: Install system dependencies
-      run: sudo apt-get update && sudo apt-get install -y ros-humble-ament-index-python
+      run: apt-get update && apt-get install -y ros-humble-ament-index-python
       shell: bash
 
     - name: Upgrade pip
