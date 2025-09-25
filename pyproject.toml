@@ -11,6 +11,7 @@ license-files = ["LICENSE"]
 dependencies = [
   "jsonschema",
   "pyyaml",
+  "ament_index_python",
 ]
 authors = [
   {name = "Takagi Isamu", email = "isamu.takagi@tier4.jp"}
