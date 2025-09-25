@@ -4,14 +4,21 @@ description: ""
 runs:
   using: composite
   steps:
+    - name: Setup ROS
+      uses: ros-tooling/setup-ros@v0.7
+
+    - name: Install dependencies
+      run: sudo apt-get update && apt-get install -y ros-humble-ament-index-python
+      shell: bash
+
     - name: Upgrade pip
       run: pip install --upgrade pip
       shell: bash
 
-    - name: Install
+    - name: Install autoware-guideline-check
       run: pip install ${GITHUB_ACTION_PATH}
       shell: bash
 
-    - name: Execute
+    - name: Execute autoware-guideline-check
       run: autoware-guideline-check
       shell: bash
