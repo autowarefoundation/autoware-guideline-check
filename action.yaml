@@ -4,6 +4,10 @@ description: ""
 runs:
   using: composite
   steps:
+    - name: List
+      run: ls -la ${GITHUB_ACTION_PATH}
+      shell: bash
+
     - name: Install
       run: pip install ${GITHUB_ACTION_PATH}
       shell: bash
