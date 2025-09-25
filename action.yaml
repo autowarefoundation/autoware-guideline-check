@@ -4,11 +4,8 @@ description: ""
 runs:
   using: composite
   steps:
-    - name: Setup ROS
-      uses: ros-tooling/setup-ros@v0.7
-
-    - name: Install dependencies
-      run: sudo apt-get update && apt-get install -y ros-humble-ament-index-python
+    - name: Install system dependencies
+      run: sudo apt-get update && sudo apt-get install -y ros-humble-ament-index-python
       shell: bash
 
     - name: Upgrade pip
