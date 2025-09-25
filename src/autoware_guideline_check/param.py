@@ -17,8 +17,8 @@ import json
 import jsonschema
 import yaml
 
-from .common.case import TestResult
-from .common.path import FilePath
+from .types.filepath import FilePath
+from .utils.testsuite import TestResult
 
 
 def validate(schema_path, params_path):

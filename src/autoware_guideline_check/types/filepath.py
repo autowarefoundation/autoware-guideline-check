@@ -14,7 +14,7 @@
 
 from pathlib import Path
 
-from .workspace import Workspace
+from ..utils.workspace import Workspace
 
 
 class FilePath:

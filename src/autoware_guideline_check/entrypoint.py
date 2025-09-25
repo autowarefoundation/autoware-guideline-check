@@ -22,8 +22,8 @@ import xml.etree.ElementTree as ET
 import xml.sax.saxutils as sax
 
 from . import param
-from .common.case import TestStatus, TestSuite
-from .common.workspace import Workspace
+from .utils.testsuite import TestStatus, TestSuite
+from .utils.workspace import Workspace
 
 
 def main():
