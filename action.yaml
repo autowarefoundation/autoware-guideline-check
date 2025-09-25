@@ -12,4 +12,5 @@ runs:
   image: Dockerfile
   args:
     - "autoware-guideline-check"
-    - "--workspace ${{ inputs.workspace }}"
+    - "--workspace"
+    - "${{ inputs.workspace }}"
