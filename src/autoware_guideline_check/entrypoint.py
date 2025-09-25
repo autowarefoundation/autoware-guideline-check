@@ -41,7 +41,7 @@ def main():
 
     workspace = Workspace(args.workspace)
     suite = sum((TestSuite.Load(file) for file in files), TestSuite())
-    test(suite, args, workspace)
+    return test(suite, args, workspace)
 
 
 def test(suite, args, workspace):
@@ -69,6 +69,8 @@ def test(suite, args, workspace):
         path = args.xunit_file
         name = args.xunit_name
         generate_xunit(path, suite, name, duration)
+
+    return 0 if suite.count() == suite.count(TestStatus.Success) else 1
 
 
 def generate_xunit(path, suite, name, duration):
