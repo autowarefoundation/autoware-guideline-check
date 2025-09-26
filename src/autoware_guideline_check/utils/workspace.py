@@ -16,8 +16,6 @@
 from pathlib import Path
 from xml.etree import ElementTree
 
-from ament_index_python.packages import get_package_share_directory
-
 
 class Package:
     def __init__(self, path: Path):
@@ -48,7 +46,9 @@ class Workspace:
 
     def get_package_share_directory(self, name: str):
         package = self._packages.get(name)
-        return package.path if package else get_package_share_directory(name)
+        if package:
+            return package.path
+        raise RuntimeError(f"Package {name} not found")
 
     @property
     def packages(self):

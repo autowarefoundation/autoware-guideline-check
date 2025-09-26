@@ -28,19 +28,16 @@ from .utils.workspace import Workspace
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--roots", nargs="+", default=["."])
-    parser.add_argument("--files", nargs="+")
-    parser.add_argument("--packages", nargs="+")
-    parser.add_argument("--workspace", nargs="*", default=[])
+    parser.add_argument("--workspaces", nargs="+", default=["."])
+    parser.add_argument("--testsuites", nargs="+")
     parser.add_argument("--xunit-file")
     parser.add_argument("--xunit-name")
     args = parser.parse_args()
 
-    packages = args.packages or Workspace(args.roots).packages
-    files = args.files or sum((package.files for package in packages), [])
+    workspace = Workspace(args.workspaces)
+    testsuite = args.testsuites or sum((package.files for package in workspace.packages), [])
 
-    workspace = Workspace(args.workspace)
-    suite = sum((TestSuite.Load(file) for file in files), TestSuite())
+    suite = sum((TestSuite.Load(file) for file in testsuite), TestSuite())
     return test(suite, args, workspace)
 
 
