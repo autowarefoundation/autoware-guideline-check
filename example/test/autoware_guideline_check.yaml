@@ -1,0 +1,14 @@
+param-checks:
+  - schema:
+      package: example_package
+      file: schema/foo.schema.json
+    params:
+      package: example_package
+      file: config/foo_success.param.yaml
+
+  - schema:
+      package: example_package
+      file: schema/foo.schema.json
+    params:
+      package: example_package
+      file: config/foo_failure.param.yaml
