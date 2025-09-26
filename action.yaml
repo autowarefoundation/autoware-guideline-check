@@ -2,15 +2,15 @@ name: autoware-guideline-check
 description: ""
 
 inputs:
-  workspace:
-    description: "Workspace directory"
+  workspaces:
+    description: "Workspace directories"
     required: false
     type: string
+    default: "."
 
 runs:
   using: docker
   image: Dockerfile
   args:
-    - "autoware-guideline-check"
-    - "--workspace"
-    - "${{ inputs.workspace }}"
+    - "--workspaces"
+    - "${{ inputs.workspaces }}"
