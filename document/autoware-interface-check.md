@@ -15,7 +15,7 @@ The following steps are required to run the test:
 ## Command
 
 ```bash
-autoware-interface-check
+autoware-guideline-check
 ```
 
 | Options      | Type   | Description                                              |
@@ -27,18 +27,18 @@ autoware-interface-check
 ## Example
 
 ```txt
-$ autoware-interface-check src/core/autoware_cmake/autoware_interface_check/example/interface.yaml
+$ autoware-guideline-check --workspace example
 Test #0 (Success)
   message: OK
   details:
-    schema: /home/user-name/autoware/install/autoware_interface_check/share/autoware_interface_check/example/schema/foo.schema.json
-    params: /home/user-name/autoware/install/autoware_interface_check/share/autoware_interface_check/example/config/foo_success.param.yaml
+    schema: example/schema/foo.schema.json
+    params: example/config/foo_success.param.yaml
 
 Test #1 (Failure)
   message: 'frame' is a required property
   details:
-    schema: /home/user-name/autoware/install/autoware_interface_check/share/autoware_interface_check/example/schema/foo.schema.json
-    params: /home/user-name/autoware/install/autoware_interface_check/share/autoware_interface_check/example/config/foo_failure.param.yaml
+    schema: example/schema/foo.schema.json
+    params: example/config/foo_failure.param.yaml
 
 Summary
   all    : 2
